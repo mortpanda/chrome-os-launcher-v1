@@ -1,0 +1,76 @@
+<ng-template #bigScreen>
+
+    <div class="lgModalDiv" fxLayout="row wrap" fxLayoutAlign="center start">
+
+        <div class="lgAppSub" fxLayout="columns wrap" fxLayoutAlign="center start">
+            <div class="lgModalTitle" fxLayout="row wrap" fxLayoutAlign="center start">
+                <h3>Add Website</h3>
+            </div>
+
+            <div class="addWebSiteMain" >
+                <div class="AddWebsiteForm" >
+                    <p-dropdown [options]="arrAppCat" [(ngModel)]="selectedCat" placeholder="Select a category"
+                        optionLabel="webCat" [showClear]="true" id="catDropdown"></p-dropdown>
+
+                        <input pInputText placeholder="Website Name" id="addWebsiteName" [(ngModel)]="websiteName"/>
+            
+                        <input pInputText placeholder="Website URL" id="addWebsiteName" [(ngModel)]="websiteUrl"/>
+                    
+                    <p-button label="Add Website" (click)="postWebsite()" id="lgLinkBtn">
+                    </p-button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</ng-template>
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+    <div class="smAppMain" fxLayout="columns wrap" fxLayoutAlign="center start">
+        <div class="smAppSub" fxLayout="columns wrap" fxLayoutAlign="center start">
+            <div class="smModalTitle" fxLayout="row wrap" fxLayoutAlign="center center">
+                <h3>Add Website</h3>
+            </div>
+
+            <div class="smAddWebSiteMain" >
+                <div class="smAddWebsiteForm" >
+                    <p-dropdown [options]="arrAppCat" [(ngModel)]="selectedCat" placeholder="Select a category"
+                        optionLabel="webCat" [showClear]="true" id="smCatDropdown"></p-dropdown>
+
+                        <input pInputText placeholder="Website Name" id="smAddWebsiteName" [(ngModel)]="websiteName"/>
+            
+                        <input pInputText placeholder="Website URL" id="smAddWebsiteName" [(ngModel)]="websiteUrl"/>
+                    
+
+                    <p-button label="Add Website" (click)="postWebsite()" id="smPageButton">
+                    </p-button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-template>
+
+
+<!-- ///////////////////////////////////////// -->
+<!-- Toast content -->
+<!-- ///////////////////////////////////////// -->
+<p-toast position="top-right"></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-toast position="top-center" key="tc"></p-toast>
+<p-toast position="bottom-center" key="bc"></p-toast>
+
+<p-toast position="top-right" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+
+        </div>
+    </ng-template>
+</p-toast>

@@ -1,0 +1,57 @@
+<ng-template #bigScreen>
+    <div class="lgModalDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+
+        <div class="lgModalSub">
+            <div class="lgModalTitle" fxLayout="row wrap" fxLayoutAlign="center center">
+                <h3>World Time</h3>
+            </div>
+
+
+            <div class="lgModalBody" fxLayout="row wrap" fxLayoutAlign="center center">
+
+                <div *ngFor="let location of arrWorldTime" id="lgLocationDiv" fxLayout="row wrap"
+                    fxLayoutAlign="center center">
+
+                    <div class="lgWorldTimeSub" fxLayout="row wrap" fxLayoutAlign="center center">
+                        <h3>{{location.location}}</h3>
+                    </div>
+                    <div class="lgWorldTimeSub" fxLayout="row wrap" fxLayoutAlign="center center">
+                        {{location.dateToday}}
+                    </div>
+                    <div class="lgWorldTimeSub" fxLayout="row wrap" fxLayoutAlign="center center">
+                        {{location.timeNow}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</ng-template>
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+    <div class="smAppMain" fxLayout="columns wrap" fxLayoutAlign="center start">
+
+        <div class="smAppSub" fxLayout="columns wrap" fxLayoutAlign="center start">
+            <h3>World Time</h3>
+            <div class="smModalBody" fxLayout="row wrap" fxLayoutAlign="center center">
+
+                <div *ngFor="let location of arrWorldTime" id="smLocationDiv" fxLayout="row wrap"
+                    fxLayoutAlign="center center">
+
+                    <div class="smWorldTimeSub" fxLayout="row wrap" fxLayoutAlign="center center">
+                        <h3>{{location.location}}</h3>
+                    </div>
+                    <div class="smWorldTimeSub" fxLayout="row wrap" fxLayoutAlign="center center">
+                        {{location.dateToday}}
+                    </div>
+                    <div class="smWorldTimeSub" fxLayout="row wrap" fxLayoutAlign="center center">
+                        {{location.timeNow}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</ng-template>

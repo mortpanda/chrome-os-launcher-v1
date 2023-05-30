@@ -1,1 +1,651 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$kent-multi-utils-v3-primary: mat.define-palette(mat.$indigo-palette);
+$kent-multi-utils-v3-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$kent-multi-utils-v3-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$kent-multi-utils-v3-theme: mat.define-light-theme((color: (primary: $kent-multi-utils-v3-primary,
+                accent: $kent-multi-utils-v3-accent,
+                warn: $kent-multi-utils-v3-warn,
+            )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($kent-multi-utils-v3-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+body {
+    // color: #FFFFFF;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    background-image: url("./assets/hakuba-3.jpg");
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    padding: 0px !important;
+    margin: 0px !important;
+
+    color: var(--primary-50);
+
+}
+
+// ********** Globals ***********
+// ********** Globals ***********
+#okta-signin-container {
+    .js-unlock {
+        display: none !important;
+    }
+
+    .js-help {
+        display: none !important;
+    }
+
+    margin-bottom: 20%;
+}
+
+#okta-sign-in .auth-header {
+    display: none;
+}
+
+#okta-sign-in .auth-beacon {
+    display: none;
+}
+
+
+a:link {
+    text-decoration: none;
+    color: #FFFFFF !important;
+}
+
+.userName {
+    font-size: 12px;
+    position: fixed;
+    bottom: 3%;
+    left: 1%;
+}
+
+mat-dialog-container {
+    background-color: var(--surface-800) !important;
+}
+
+cdk-overlay-pane {
+    background-color: var(--surface-800) !important;
+}
+
+cdk-global-overlay-wrapper {
+    background-color: var(--surface-800) !important;
+}
+
+mat-mdc-dialog-surface {
+    background-color: var(--surface-800) !important;
+    padding: 1% !important;
+}
+
+.mdc-dialog__surface {
+    background-color: var(--surface-800) !important;
+    padding: 1% !important;
+}
+
+
+
+// ********** Globals ***********
+// ********** Globals ***********
+
+// ********** Main CSS **********
+// ********** Main CSS **********
+
+// ********** Portrait **********
+// ********** Portrait **********
+@media (orientation: portrait) {
+
+    #mainDock {
+        .p-dock {
+            padding: 0px !important;
+            .p-dock-action {
+                height: 5vh;
+                padding: 0px !important;
+            }
+            .p-dock-list {
+                padding: 0px !important;
+                border-radius: 0%;
+            }
+            .p-dock-list-container {
+                pointer-events: auto;
+                padding: 0px !important;
+            }
+
+            .p-dock-item {
+                padding: 0px !important;
+            }
+        }
+    }
+
+    .smAppMain {
+        height: 100vh;
+        width: 100vw;
+        padding: 2%;
+    }
+    .smDivTop {
+        width: 100%;
+        height: 50vh;
+        margin-top: 5%;
+        overflow-y: auto;
+        // /* Hide scrollbar for Chrome, Safari and Opera */
+        // /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .smDivTop::-webkit-scrollbar {
+        display: none;
+    }
+
+    .smDivBottom {
+        width: 100%;
+        height: 30vh;
+        margin-top: 5%;
+        overflow-y: auto;
+        // /* Hide scrollbar for Chrome, Safari and Opera */
+        // /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+
+    }
+
+    .smDivBottom::-webkit-scrollbar {
+        display: none;
+    }
+
+    #smPageButton {
+        .p-button {
+            width: 40vw;
+            height: 7vh;
+            margin: 10px;
+            color: #FFFFFF !important;
+            background-color: transparent !important;
+            text-transform: uppercase !important;
+            border-radius: 0px !important;
+            margin: 10px !important;
+            border-left: none !important;
+            border-right: none !important;
+            border-color: #ffffff !important;
+            font-size: 12px !important;
+            -webkit-backdrop-filter: blur(7px) !important;
+            backdrop-filter: blur(7px) !important;
+            text-align: left;
+            display: flex;
+            align-items: flex-end;
+
+        }
+    }
+
+    #smPageButton {
+        .smBtn {
+            .p-button {
+                background-color: var(--surface-900) !important;
+            }
+        }
+    }
+
+    #okta-signin-container {
+        width: 90vw;
+    }
+
+
+    #smBtnicon {
+        margin-right: 10px;
+    }
+
+    .smAppBtnIcon {
+        margin-right: 10px;
+        width: 4vw;
+        height: auto;
+    }
+
+    .smModalTitle {
+        padding: 1%;
+        height: auto;
+        width: 100%;
+    }
+
+    .smAppMain {
+        width: 100%;
+        height: 100%;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .smAppMain::-webkit-scrollbar {
+        display: none;
+    }
+
+    .smModalBody {
+        overflow-y: auto;
+        padding: 1%;
+        height: 80%;
+        width: 100%;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .smModalBody::-webkit-scrollbar {
+        display: none;
+    }
+
+    #smLinkBtn {
+        .p-button {
+            background-color: var(--surface-900) !important;
+            text-transform: uppercase !important;
+            border-radius: 0px !important;
+            margin: 10px !important;
+            border-left: none !important;
+            border-right: none !important;
+            border-color: #ffffff !important;
+            width: 25vw !important;
+            height: 5vh !important;
+            font-size: 9px !important;
+            color: #FFFFFF !important;
+            text-align: start !important;
+            display: flex;
+            align-items: flex-end;
+            padding: 5px;
+        }
+    }
+
+    #smLocationDiv {
+        width: 30vw;
+        height: 15vh;
+        margin: 10px;
+        color: #FFFFFF !important;
+        background-color: var(--surface-900) !important;
+        text-transform: uppercase !important;
+        border-radius: 0px !important;
+        margin: 10px !important;
+
+        border-top-style: solid !important;
+        border-bottom-style: solid !important;
+
+        border-top-width: 1px !important;
+        border-bottom-width: 1px !important;
+
+        border-left: none !important;
+        border-right: none !important;
+        border-color: #ffffff !important;
+        font-size: 12px !important;
+        padding: 10px;
+    }
+
+    .smWorldTimeSub {
+        width: 100%;
+    }
+
+    .mat-mdc-dialog-container ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mdc-dialog__container ::-webkit-scrollbar {
+        display: none;
+    }
+
+    #smCatDropdown {
+        width: 100%;
+
+        .p-dropdown {
+            width: 100%;
+        }
+
+        .p-dropdown-panel {
+            font-size: 12px;
+        }
+    }
+
+    #smAddWebsiteName {
+        width: 100%;
+        margin-top: 2%;
+    }
+
+    .smAddWebsiteForm {
+        width: 100%;
+    }
+
+    .smAddWebSiteMain {
+        padding: 1%;
+        width: 100%;
+    }
+
+    .smAddWebsiteForm {
+        width: 100%;
+    }
+     .smMainIframe{
+        width:85vw;
+        height:85vh;
+        zoom: 0.90;
+    }
+}
+
+// ********** Portrait **********
+// ********** Portrait **********
+
+// ********** Landscape **********
+// ********** Landscape **********
+@media (orientation: landscape) {
+    #mainDock {
+        .p-dock {
+            padding: 0px !important;
+            .p-dock-action {
+                height: 7vh;
+                padding: 0px !important;
+            }
+
+            .p-dock-list {
+                padding: 0px !important;
+                border-radius: 0%;
+            }
+
+            .p-dock-list-container {
+                pointer-events: auto;
+                padding: 0px !important;
+            }
+
+            .p-dock-item {
+                padding: 0px !important;
+            }
+        }
+    }
+
+    .lgAppMLanding {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .lgAppMain {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .lgLeftCont {
+        width: 40vw;
+        height: 100vh;
+        -webkit-backdrop-filter: blur(7px);
+        backdrop-filter: blur(7px);
+    }
+
+    .lgRightCont {
+        width: 70vw;
+        height: 100vh;
+    }
+
+    .lgAppSub {
+        width: 95vw;
+        height: 85vh;
+    }
+
+    .lgSubContainer {
+        padding: 1%;
+        width: 100%;
+        height: 100%;
+        -webkit-backdrop-filter: blur(2px) !important;
+    }
+
+    #iconButton {
+        .p-button {
+            padding: 0px;
+            width: 8vw;
+            height: 10vh;
+            color: #FFFFFF !important;
+            background-color: transparent !important;
+            font-size: 12px !important;
+            display: inline-block;
+            border: none;
+            text-align: center !important;
+            margin-bottom: 10px;
+        }
+    }
+
+    #iconButton:hover {
+        color: black !important;
+
+        .p-button {
+            padding: 0px;
+            width: 8vw;
+            height: 10vh;
+            color: #ffffff !important;
+            background-color: grey !important;
+            font-size: 12px !important;
+            display: inline-block;
+            border: none;
+            text-align: center !important;
+            margin-bottom: 10px;
+        }
+    }
+
+    .btnIcon {
+        width: 100% !important;
+        text-align: center;
+
+    }
+
+    .btnLabel {
+        padding-left: 10%;
+        padding-right: 10%;
+        width: 100% !important;
+        margin-top: 2px;
+    }
+
+    #pageButton {
+        .p-button {
+            width: 20vw;
+            height: 10vh;
+            margin: 10px;
+            color: #FFFFFF !important;
+            background-color: transparent !important;
+            text-transform: uppercase !important;
+            border-radius: 0px !important;
+            margin: 10px !important;
+            border-left: none !important;
+            border-right: none !important;
+            border-color: #ffffff !important;
+            font-size: 12px !important;
+            // -webkit-backdrop-filter: blur(7px) !important;
+            // backdrop-filter: blur(7px) !important;
+            text-align: left;
+            display: flex;
+            align-items: flex-end;
+
+        }
+    }
+
+    .appicon {
+        width: 50px;
+        height: auto;
+    }
+
+    .lgModalDiv {
+        width: 100%;
+        height: 100%;
+    }
+
+    .lgModalSub {
+        width: 100%;
+        height: 100%;
+    }
+
+    .lgModalTitle {
+        padding: 1%;
+        height: 10%;
+        width: 100%;
+    }
+
+    .lgModalHead {
+        padding: 1%;
+        height: 10%;
+        width: 100%;
+    }
+
+    .lgModalBody {
+        overflow-y: auto;
+        padding: 1%;
+        height: 80%;
+        width: 100%;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .lgModalBody::-webkit-scrollbar {
+        display: none;
+    }
+
+    #lgLinkBtn {
+        .p-button {
+            background-color: var(--surface-900) !important;
+            text-transform: uppercase !important;
+            border-radius: 0px !important;
+            margin: 10px !important;
+            border-left: none !important;
+            border-right: none !important;
+            border-color: #ffffff !important;
+            width: 20vw !important;
+            height: 5vh !important;
+            font-size: 10px !important;
+            color: #FFFFFF !important;
+            text-align: start !important;
+            display: flex;
+            align-items: flex-end;
+            padding: 5px;
+
+        }
+    }
+
+    #lgSearchField {
+        width: 30vw;
+        padding: 5px;
+
+        .p-inputtext {
+            padding: 0px;
+
+        }
+    }
+
+    #lgLocationDiv {
+        width: 10vw;
+        height: 15vh;
+        margin: 10px;
+        color: #FFFFFF !important;
+        background-color: var(--surface-900) !important;
+        text-transform: uppercase !important;
+        border-radius: 0px !important;
+        margin: 10px !important;
+
+        border-top-style: solid !important;
+        border-bottom-style: solid !important;
+
+        border-top-width: 1px !important;
+        border-bottom-width: 1px !important;
+
+        border-left: none !important;
+        border-right: none !important;
+        border-color: #ffffff !important;
+        font-size: 12px !important;
+        padding: 10px;
+    }
+
+    .lgWorldTimeSub {
+        width: 100%;
+    }
+
+    .mat-mdc-dialog-container .mdc-dialog__container {
+        -ms-overflow-style: none;
+        // /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+
+    }
+
+    .addWebSiteMain::-webkit-scrollbar {
+        display: none;
+    }
+
+    .addWebSiteMain {
+        width: 100%;
+        padding: 10px;
+        // -ms-overflow-style: none;
+        // /* IE and Edge */
+        // scrollbar-width: none;
+        /* Firefox */
+        overflow: hidden;
+    }
+
+    .mat-mdc-dialog-container ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mdc-dialog__container ::-webkit-scrollbar {
+        display: none;
+    }
+
+    #catDropdown {
+        width: 100%;
+
+        .p-dropdown {
+            width: 100%;
+            margin-bottom: 10px;
+
+        }
+
+        .p-dropdown-panel {
+            font-size: 12px;
+        }
+    }
+
+    #addWebsiteName {
+        margin-bottom: 10px;
+        .p-inputtext {}
+        width:100%;
+    }
+    .mainIframe{
+        width:75vw;
+        height:75vh;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

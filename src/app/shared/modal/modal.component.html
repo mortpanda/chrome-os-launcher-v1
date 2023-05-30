@@ -1,0 +1,49 @@
+<ng-template #bigScreen>
+    <!-- <app-main-dock></app-main-dock> -->
+    <div class="lgModalDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+
+        <div class="lgModalSub">
+            <div class="lgModalTitle" fxLayout="row wrap" fxLayoutAlign="center center">
+                <h3>{{appType}}</h3>
+            </div>
+            <div class="lgModalHead" fxLayoutAlign="center center">
+
+                <input type="text" pInputText [(ngModel)]="searchTxt" id="lgSearchField" placeholder="Search keyword"
+                    classs="p-inputgroup" />
+            </div>
+
+            <div class="lgModalBody" fxLayout="row wrap" fxLayoutAlign="center start">
+
+                <p-button label="{{app.websiteName}}" (click)="GeneralService.openPage(app.websiteURL)" id="lgLinkBtn"
+                    *ngFor="let app of applist | FilterPipe : searchTxt ">
+                </p-button>
+
+            </div>
+        </div>
+
+    </div>
+
+</ng-template>
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+    <div class="smAppMain" fxLayout="columns wrap" fxLayoutAlign="center start">
+
+        <div class="smAppSub" fxLayout="columns wrap" fxLayoutAlign="center start">
+            <div class="smModalTitle" fxLayout="row wrap" fxLayoutAlign="center center">
+                <h3>{{appType}}</h3>
+            </div>
+
+            <div class="smModalBody" fxLayout="row wrap" fxLayoutAlign="center start">
+
+                <p-button label="{{app.websiteName}}" (click)="GeneralService.openPage(app.websiteURL)" id="smLinkBtn"
+                    *ngFor="let app of applist">
+                </p-button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</ng-template>

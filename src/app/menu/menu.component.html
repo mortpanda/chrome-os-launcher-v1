@@ -1,0 +1,161 @@
+<div *ngIf="dataLoaded; else notShow">
+    <ng-template #bigScreen>
+
+        <app-main-dock></app-main-dock>
+
+        <div class="userName">{{strFullName}}</div>
+
+        <div class="lgAppMain" fxLayout="columns " fxLayoutAlign="center center">
+            <div class="lgAppSub" fxLayout="columns " fxLayoutAlign="center center">
+
+                <div class="lgSubContainer" fxLayout="column wrap" fxLayoutAlign="start start">
+
+                    <p-button *ngFor="let item of arrMenuItems" id="iconButton" cdkDrag (mousedown)="$event"
+                        (mouseup)="$event" (mouseleave)="$event" (dblclick)="GeneralService.openPage(item.uri)"
+                        cdkDragBoundary=".lgSubContainer" fxLayout="columns wrap" fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <img src="assets/{{item.icon}}" class="appicon">
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            {{item.siteName}}
+                        </div>
+                    </p-button>
+
+                    <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
+                        (dblclick)="openLink('Admin Dashboards')" cdkDragBoundary=".lgSubContainer"
+                        fxLayout="columns wrap" fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <i class="pi pi-spin pi-cog" style="font-size: 2.5rem"></i>
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            Admin Dashboard
+                        </div>
+                    </p-button>
+
+                    <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
+                        (dblclick)="openMyApps()" cdkDragBoundary=".lgSubContainer" fxLayout="columns wrap"
+                        fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <img src="assets/okta_apps.png" class="appicon">
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            My Apps
+                        </div>
+                    </p-button>
+
+                    <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
+                        (dblclick)="openLink('User Dashboards')" cdkDragBoundary=".lgSubContainer"
+                        fxLayout="columns wrap" fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <i class="pi  pi-id-card" style="font-size: 2.5rem"></i>
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            User Dashboards
+                        </div>
+                    </p-button>
+
+                    <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
+                        (dblclick)="openLink('Daily Websites')" cdkDragBoundary=".lgSubContainer"
+                        fxLayout="columns wrap" fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <i class="pi  pi-bookmark-fill" style="font-size: 2.5rem"></i>
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            Daily Websites
+                        </div>
+                    </p-button>
+
+                    <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
+                        (dblclick)="openLink('My Personal Apps')" cdkDragBoundary=".lgSubContainer"
+                        fxLayout="columns wrap" fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <i class="pi  pi-microsoft" style="font-size: 2.5rem"></i>
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            My Personal Apps
+                        </div>
+                    </p-button>
+
+                    <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
+                        (dblclick)="worldTime()" cdkDragBoundary=".lgSubContainer" fxLayout="columns wrap"
+                        fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <i class="pi  pi-globe" style="font-size: 2.5rem"></i>
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            World Time
+                        </div>
+                    </p-button>
+
+                    <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
+                        (dblclick)="openConfig()" cdkDragBoundary=".lgSubContainer" fxLayout="columns wrap"
+                        fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <i class="pi  pi-wrench" style="font-size: 2.5rem"></i>
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            Config
+                        </div>
+                    </p-button>
+
+                </div>
+            </div>
+
+        </div>
+    </ng-template>
+    <!-- ************************* SMALL SCREEN ************************* -->
+    <!-- ************************* SMALL SCREEN ************************* -->
+    <ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+        <div class="smAppMain">
+            <app-main-dock></app-main-dock>
+            <div class="userName">{{strFullName}}</div>
+
+            <div class="smAppSub" fxLayout="columns wrap" fxLayoutAlign="center start">
+
+                <div class="smDivTop" fxLayout="columns wrap" fxLayoutAlign="center start">
+                    <p-button label="{{item.siteName}}" (click)="GeneralService.openPage(item.uri)"
+                        *ngFor="let item of arrMenuItems" id="smPageButton">
+                        <img src="assets/{{item.icon}}" class="smAppBtnIcon">
+                    </p-button>
+                </div>
+
+                <div class="smDivBottom" fxLayout="columns wrap" fxLayoutAlign="center start">
+                    <p-button label="Admin Dashboard" (click)="openLink('Admin Dashboards')" id="smPageButton">
+                        <i class="pi  pi-cog" style="font-size: 1rem" id="smBtnicon"></i>
+                    </p-button>
+
+                    <p-button label="My Apps" (click)="smOpenMyApps()" id="smPageButton">
+                        <img src="assets/okta_apps.png" class="smAppBtnIcon">
+                    </p-button>
+
+
+                    <p-button label="User Dashboard" (click)="openLink('User Dashboards')" id="smPageButton">
+                        <i class="pi  pi-user" style="font-size: 1rem" id="smBtnicon"></i>
+                    </p-button>
+
+                    <p-button label="Daily Websites" (click)="openLink('Daily Websites')" id="smPageButton">
+                        <i class="pi pi-bookmark-fill" style="font-size: 1rem" id="smBtnicon"></i>
+                    </p-button>
+
+                    <p-button label="Personal Apps" (click)="openLink('My Personal Apps')" id="smPageButton">
+                        <i class="pi pi-microsoft" style="font-size: 1rem" id="smBtnicon"></i>
+                    </p-button>
+
+                    <p-button label="World Time" (click)="smWorldTime()" id="smPageButton">
+                        <i class="pi pi-globe" style="font-size: 1rem" id="smBtnicon"></i>
+                    </p-button>
+
+                    <p-button label="Config" (click)="smConfig()" id="smPageButton">
+                        <i class="pi pi-globe" style="font-size: 1rem" id="smBtnicon"></i>
+                    </p-button>
+
+                </div>
+
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+<ng-template #notShow>
+    <p-progressBar mode="indeterminate" [style]="{ height: '6px' }"></p-progressBar>
+</ng-template>

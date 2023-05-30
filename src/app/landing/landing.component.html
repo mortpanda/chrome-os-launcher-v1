@@ -1,0 +1,21 @@
+<ng-template #bigScreen>
+    <div class="lgAppMLanding" fxLayout="columns " fxLayoutAlign="start center">
+
+        <div class="lgLeftCont" fxLayout="columns " fxLayoutAlign="center center">
+            <div id="okta-signin-container"></div>
+        </div>
+        <div class="lgRightCont" fxLayout="columns " fxLayoutAlign="center center">
+
+        </div>
+    </div>
+</ng-template>
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+    <div class="smAppLanding">
+        <div class="smLeftCont" fxLayout="columns wrap" fxLayoutAlign="center center">
+            <div id="okta-signin-container"></div>
+        </div>
+        <div class="smRightCont"></div>
+    </div>
+</ng-template>

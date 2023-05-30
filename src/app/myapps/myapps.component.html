@@ -1,0 +1,23 @@
+<ng-template #bigScreen>
+    <div class="lgModalDiv" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div class="userName">{{strFullName}}</div>
+        <div class="lgModalSub">
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
+                <iframe [src]="strSafeSite" class="mainIframe"></iframe>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+    <div class="smAppMain" fxLayout="columns wrap" fxLayoutAlign="center start">
+        <div class="userName">{{strFullName}}</div>
+        <div class="smAppSub" fxLayout="columns wrap" fxLayoutAlign="center start">
+            <div fxLayout="columns wrap" fxLayoutAlign="center center">
+                <iframe [src]="strSafeSite" class="smMainIframe"></iframe>
+            </div>
+        </div>
+
+    </div>
+</ng-template>

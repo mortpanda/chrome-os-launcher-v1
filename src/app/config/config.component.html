@@ -1,0 +1,33 @@
+<ng-template #bigScreen>
+
+    <div class="lgModalDiv" fxLayout="row wrap" fxLayoutAlign="center start">
+        
+        <div class="lgAppSub" fxLayout="columns wrap" fxLayoutAlign="center start">
+            <div class="lgModalTitle" fxLayout="row wrap" fxLayoutAlign="center start">
+                <h3>Config Menu</h3>
+            </div>
+            <p-button label="Clear Cache" (click)="clearCache()" id="lgLinkBtn">
+            </p-button>
+
+            <p-button label="Add Website" (click)="addWebsite()" id="lgLinkBtn">
+            </p-button>
+        </div>
+    </div>
+
+</ng-template>
+<!-- ************************* SMALL SCREEN ************************* -->
+<!-- ************************* SMALL SCREEN ************************* -->
+<ng-template [ngIf]="smallScreen" [ngIfElse]="bigScreen">
+    <div class="smAppMain" fxLayout="columns wrap" fxLayoutAlign="center start">
+        <div class="smAppSub" fxLayout="columns wrap" fxLayoutAlign="center start">
+            <div class="smModalTitle" fxLayout="row wrap" fxLayoutAlign="center center">
+                <h3>Config Menu</h3>
+            </div>
+            <p-button label="Clear Cache" (click)="clearCache()" id="smPageButton">
+            </p-button>
+
+            <p-button label="Add Website" (click)="smAddWebsite()" id="smPageButton">
+            </p-button>
+        </div>
+    </div>
+</ng-template>
