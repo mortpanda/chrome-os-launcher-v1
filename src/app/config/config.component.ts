@@ -3,7 +3,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog, MatDialogRef,  MatDialogConfig } from '@angular/material/dialog';
 import { AddWebsiteComponent } from './add-website/add-website.component';
-
+import { OktaConfigService } from '../shared/okta-config.service';
 
 @Component({
   selector: 'app-config',
@@ -18,7 +18,8 @@ export class ConfigComponent {
     private breakpointObserver: BreakpointObserver,
     private AddWebsiteComponent: AddWebsiteComponent,
     private _matdialog: MatDialog,
-    public dialogRef: MatDialogRef<ConfigComponent>
+    public dialogRef: MatDialogRef<ConfigComponent>,
+    private OktaConfigService:OktaConfigService,
     
   ) {
     breakpointObserver.observe([
@@ -34,7 +35,7 @@ export class ConfigComponent {
   clearCache() {
     localStorage.removeItem('appItems');
     localStorage.removeItem('menuItems');
-    window.location.replace('/')
+    window.location.replace(this.OktaConfigService.strPostLogoutURL)
   }
 
   addWebsite() {

@@ -123,14 +123,17 @@ mat-mdc-dialog-surface {
     #mainDock {
         .p-dock {
             padding: 0px !important;
+
             .p-dock-action {
                 height: 5vh;
                 padding: 0px !important;
             }
+
             .p-dock-list {
                 padding: 0px !important;
                 border-radius: 0%;
             }
+
             .p-dock-list-container {
                 pointer-events: auto;
                 padding: 0px !important;
@@ -146,7 +149,9 @@ mat-mdc-dialog-surface {
         height: 100vh;
         width: 100vw;
         padding: 2%;
+        background-color: #424242;
     }
+
     .smDivTop {
         width: 100%;
         height: 50vh;
@@ -264,7 +269,7 @@ mat-mdc-dialog-surface {
 
     #smLinkBtn {
         .p-button {
-            background-color: var(--surface-900) !important;
+            background-color: #212121 !important;
             text-transform: uppercase !important;
             border-radius: 0px !important;
             margin: 10px !important;
@@ -346,10 +351,14 @@ mat-mdc-dialog-surface {
     .smAddWebsiteForm {
         width: 100%;
     }
-     .smMainIframe{
-        width:85vw;
-        height:85vh;
+
+    .smMainIframe {
+        width: 85vw;
+        height: 85vh;
         zoom: 0.90;
+    }
+    .appTitle {
+        color: #FFFFFF
     }
 }
 
@@ -362,6 +371,7 @@ mat-mdc-dialog-surface {
     #mainDock {
         .p-dock {
             padding: 0px !important;
+
             .p-dock-action {
                 height: 7vh;
                 padding: 0px !important;
@@ -490,9 +500,14 @@ mat-mdc-dialog-surface {
         height: auto;
     }
 
+    .appTitle {
+        color: #FFFFFF
+    }
+
     .lgModalDiv {
         width: 100%;
         height: 100%;
+        background-color: #424242;
     }
 
     .lgModalSub {
@@ -529,7 +544,7 @@ mat-mdc-dialog-surface {
 
     #lgLinkBtn {
         .p-button {
-            background-color: var(--surface-900) !important;
+            background-color: #212121 !important;
             text-transform: uppercase !important;
             border-radius: 0px !important;
             margin: 10px !important;
@@ -563,7 +578,7 @@ mat-mdc-dialog-surface {
         height: 15vh;
         margin: 10px;
         color: #FFFFFF !important;
-        background-color: var(--surface-900) !important;
+        background-color: #212121!important;
         text-transform: uppercase !important;
         border-radius: 0px !important;
         margin: 10px !important;
@@ -631,12 +646,15 @@ mat-mdc-dialog-surface {
 
     #addWebsiteName {
         margin-bottom: 10px;
+
         .p-inputtext {}
+
         width:100%;
     }
-    .mainIframe{
-        width:75vw;
-        height:75vh;
+
+    .mainIframe {
+        width: 75vw;
+        height: 75vh;
     }
 }
 
