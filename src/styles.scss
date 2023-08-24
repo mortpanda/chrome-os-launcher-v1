@@ -31,6 +31,8 @@ $kent-multi-utils-v3-theme: mat.define-light-theme((color: (primary: $kent-multi
 
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+
 
 body {
     // color: #FFFFFF;
@@ -76,7 +78,7 @@ body {
 
 a:link {
     text-decoration: none;
-    color: #FFFFFF !important;
+    // color: #FFFFFF !important;
 }
 
 .userName {
@@ -109,6 +111,12 @@ mat-mdc-dialog-surface {
 }
 
 
+// #okta-sign-in.auth-container {
+//     .button {
+//         color: #0000 !important;
+//     }
+// }
+
 
 // ********** Globals ***********
 // ********** Globals ***********
@@ -123,14 +131,17 @@ mat-mdc-dialog-surface {
     #mainDock {
         .p-dock {
             padding: 0px !important;
+
             .p-dock-action {
                 height: 5vh;
                 padding: 0px !important;
             }
+
             .p-dock-list {
                 padding: 0px !important;
                 border-radius: 0%;
             }
+
             .p-dock-list-container {
                 pointer-events: auto;
                 padding: 0px !important;
@@ -147,6 +158,7 @@ mat-mdc-dialog-surface {
         width: 100vw;
         padding: 2%;
     }
+
     .smDivTop {
         width: 100%;
         height: 50vh;
@@ -346,9 +358,10 @@ mat-mdc-dialog-surface {
     .smAddWebsiteForm {
         width: 100%;
     }
-     .smMainIframe{
-        width:85vw;
-        height:85vh;
+
+    .smMainIframe {
+        width: 85vw;
+        height: 85vh;
         zoom: 0.90;
     }
 }
@@ -362,6 +375,7 @@ mat-mdc-dialog-surface {
     #mainDock {
         .p-dock {
             padding: 0px !important;
+
             .p-dock-action {
                 height: 7vh;
                 padding: 0px !important;
@@ -631,12 +645,15 @@ mat-mdc-dialog-surface {
 
     #addWebsiteName {
         margin-bottom: 10px;
+
         .p-inputtext {}
+
         width:100%;
     }
-    .mainIframe{
-        width:75vw;
-        height:75vh;
+
+    .mainIframe {
+        width: 75vw;
+        height: 75vh;
     }
 }
 
