@@ -66,6 +66,17 @@
                     </p-button>
 
                     <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
+                        (dblclick)="openLink('Dev Info')" cdkDragBoundary=".lgSubContainer"
+                        fxLayout="columns wrap" fxLayoutAlign="center center">
+                        <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
+                            <i class="pi  pi-box" style="font-size: 2.5rem"></i>
+                        </div>
+                        <div class="btnLabel" fxLayout="columns wrap" fxLayoutAlign="center center">
+                            Dev Info
+                        </div>
+                    </p-button>
+
+                    <p-button id="iconButton" cdkDrag (mousedown)="$event" (mouseup)="$event" (mouseleave)="$event"
                         (dblclick)="openLink('My Personal Apps')" cdkDragBoundary=".lgSubContainer"
                         fxLayout="columns wrap" fxLayoutAlign="center center">
                         <div class="btnIcon" fxLayout="row wrap" fxLayoutAlign="center center">
